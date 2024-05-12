@@ -1,0 +1,8 @@
+var express = require('express');
+var foodController = require('../src/foodController');  // Make sure to replace 'foodController' with the actual controller you have for food items
+const router = express.Router();
+
+router.route('/food/addtocart').post(foodController.addToCartControllerFn);
+router.route('/food/validatecart').post(foodController.validateCartControllerFn);
+
+module.exports = router;

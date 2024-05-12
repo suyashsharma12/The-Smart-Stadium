@@ -1,0 +1,42 @@
+//studentservice
+const studentModel = require('./studentModel');
+const key = '123456789trytryrtyr';
+const encryptor = require('simple-encryptor')(key);
+
+module.exports.createStudentDBService = async (studentDetails) => {
+  try {
+    const studentModelData = new studentModel({
+      firstname: studentDetails.firstname,
+      lastname: studentDetails.lastname,
+      email: studentDetails.email,
+      password: encryptor.encrypt(studentDetails.password)
+    });
+
+    await studentModelData.save();
+    return true;
+  } catch (error) {
+    console.error(error);
+    return false;
+  }
+};
+
+module.exports.loginuserDBService = async (studentDetails) => {
+  try {
+    const result = await studentModel.findOne({ email: studentDetails.email });
+    
+    if (result !== undefined && result !== null) {
+      const decrypted = encryptor.decrypt(result.password);
+
+      if (decrypted === studentDetails.password) {
+        return { status: true, msg: "Student Validated Successfully" };
+      } else {
+        throw { status: false, msg: "Student Validation Failed" };
+      }
+    } else {
+      throw { status: false, msg: "Student Error Details" };
+    }
+  } catch (error) {
+    console.error(error);
+    throw { status: false, msg: "Invalid Data" };
+  }
+};

@@ -1,0 +1,42 @@
+//bookingservice
+const bookingModel = require('./bookingModel');  // Make sure to replace 'bookingModel' with the actual model you have for bookings
+const key = '123456789trytryrtyr';  // Replace 'your_secret_key' with a secure secret key
+const encryptor = require('simple-encryptor')(key);
+
+module.exports.createBookingDBService = async (bookingDetails) => {
+  try {
+    const bookingModelData = new bookingModel({
+      name: bookingDetails.name,
+      email: bookingDetails.email,
+      date: bookingDetails.date,
+      seat: bookingDetails.seat,
+      // Additional properties as needed
+    });
+
+    await bookingModelData.save();
+    return true;
+  } catch (error) {
+    console.error(error);
+    return false;
+  }
+};
+
+module.exports.validateBookingDBService = async (bookingDetails) => {
+  try {
+    const result = await bookingModel.findOne({ email: bookingDetails.email });
+    
+    if (result !== undefined && result !== null) {
+      // You may want to decrypt and compare other properties as needed
+      if (result.date === bookingDetails.date && result.seat === bookingDetails.seat) {
+        return { status: true, msg: "Booking Validated Successfully" };
+      } else {
+        throw { status: false, msg: "Booking Validation Failed" };
+      }
+    } else {
+      throw { status: false, msg: "Booking Error Details" };
+    }
+  } catch (error) {
+    console.error(error);
+    throw { status: false, msg: "Invalid Data" };
+  }
+};

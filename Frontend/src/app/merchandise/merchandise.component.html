@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricket Merchandise</title>
+    <link rel="stylesheet" href="merchandise.component.css">
+</head>
+<body>
+
+    <header>
+        <h1>Cricket Merchandise</h1>
+    </header>
+
+    <section class="product-section">
+        <div class="product" id="cricketBat">
+            <img src="../../assets/img/bat.jpg" alt="Cricket Bat">
+            <div class="product-info">
+                <h3>Cricket Bat</h3>
+                <p>High-quality cricket bat for Audience</p>
+                <p class="price">Price: $1000</p>
+                <button (click)="addToCart('Cricket Bat', 'High-quality cricket bat for Audiences', 1000)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product" id="cricketBat">
+            <img src="../../assets/img/ball.jpg" alt="Cricket Ball">
+            <div class="product-info">
+                <h3>Cricket Ball</h3>
+                <p>High-quality cricket bal for Audiences</p>
+                <p class="price">Price: $500</p>
+                <button (click)="addToCart('Cricket Ball', 'High-quality cricket bal for Audiences.', 500)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product" id="Jersey">
+            <img src="../../assets/img/dhoni.jpg" alt="Jersey">
+            <div class="product-info">
+                <h3>Player Jersey</h3>
+                <p>Premium-quality PLayer Jersey for Audiences.</p>
+                <p class="price">Price: $700</p>
+                <button (click)="addToCart('Player Jersey', 'Premium-quality PLayer Jersey for Audiences.', 700)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product" id="Shoes">
+            <img src="../../assets/img/shoe.jpg" alt="Shoes">
+            <div class="product-info">
+                <h3>Shoes</h3>
+                <p>High-quality Shoes for Audience</p>
+                <p class="price">Price: $2000</p>
+                <button (click)="addToCart('Shoes', 'High-quality Shoes for Audience.', 2000)">Add to Cart</button>
+            </div>
+        </div>
+
+
+
+        <!-- Similar structure for other products (ball, jersey, shoes) -->
+
+    </section>
+
+    <script src="https://code.angularjs.org/1.8.2/angular.min.js"></script>
+    <script>
+        angular.module('merchApp', [])
+            .controller('MerchController', function ($http, $window) {
+                this.addToCart = function (name, description, price) {
+                    var merchDetails = { name, description, price };
+
+                    $http.post('http://localhost:9992/merch/addtocart', merchDetails)
+                        .then(function (response) {
+                            console.log(response.data);
+                            alert('Item added to cart successfully');
+                        })
+                        .catch(function (error) {
+                            console.error(error.data);
+                            alert('Error adding item to cart');
+                        });
+                };
+            });
+    </script>
+</body>
+</html>

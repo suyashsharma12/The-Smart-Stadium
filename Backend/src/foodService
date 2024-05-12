@@ -1,0 +1,38 @@
+const foodModel = require('./foodModel');  // Make sure to replace 'foodModel' with the actual model you have for food items
+
+module.exports.addToCartDBService = async (foodDetails) => {
+    try {
+        const foodModelData = new foodModel({
+            name: foodDetails.name,
+            description: foodDetails.description,
+            price: foodDetails.price,
+            // Additional properties as needed for food items
+        });
+
+        await foodModelData.save();
+        return true;
+    } catch (error) {
+        console.error(error);
+        return false;
+    }
+};
+
+module.exports.validateCartDBService = async (foodDetails) => {
+    try {
+        const result = await foodModel.findOne({ name: foodDetails.name });
+
+        if (result !== undefined && result !== null) {
+            // You may want to compare other properties as needed
+            if (result.description === foodDetails.description && result.price === foodDetails.price) {
+                return { status: true, msg: "Food Item Validated in Cart Successfully" };
+            } else {
+                throw { status: false, msg: "Food Item Validation Failed in Cart" };
+            }
+        } else {
+            throw { status: false, msg: "Food Item Not Found in Cart" };
+        }
+    } catch (error) {
+        console.error(error);
+        throw { status: false, msg: "Invalid Data" };
+    }
+};

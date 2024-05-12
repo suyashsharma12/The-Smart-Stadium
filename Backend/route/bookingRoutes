@@ -1,0 +1,9 @@
+//bookingRoutes
+var express = require('express');
+var bookingController = require('../src/bookingController');
+const router = express.Router();
+
+router.route('/booking/create').post(bookingController.createBookingControllerFn);
+router.route('/booking/validate').post(bookingController.validateBookingControllerFn);
+
+module.exports = router;

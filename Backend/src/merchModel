@@ -1,0 +1,21 @@
+// merchModel
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+
+var merchSchema = new Schema({
+    name: {
+        type: String,
+        required: true
+    },
+    description: {
+        type: String,
+        required: true
+    },
+    price: {
+        type: Number,
+        required: true
+    }
+    // Add additional properties as needed
+});
+
+module.exports = mongoose.model('merchandise', merchSchema);

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="predict.component.css">
+</head>
+
+<body>
+    <header>
+        <h1>Prediction</h1>
+    </header>
+
+    <section class="contact-form">
+        <form (ngSubmit)="onSubmit()">
+            <label for="timestamp_start">Timestamp Start 123:</label>
+            <input type="number" id="timestamp_start" name="timestamp_start" required>
+    
+            <label for="timestamp_stop">Timestamp Stop:</label>
+            <input type="number" id="timestamp_stop" name="timestamp_stop" required>
+    
+            <label for="x">X:</label>
+            <input type="number" id="x" name="x" required>
+    
+            <label for="y">Y:</label>
+            <input type="number" id="y" name="y" required>
+    
+            <label for="device_id">Device ID:</label>
+            <input type="number" id="device_id" name="device_id" required>
+    
+            <label for="stats">Stats</label>
+            <input type="number" id="stats" name="stats" required>
+    
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+    
+
+</body>
+
+</html>

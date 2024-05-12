@@ -1,0 +1,48 @@
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-body">
+      <h1>Booking</h1>
+      <form>
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label>Name</label>
+              <input type="text" [(ngModel)]="name" [ngModelOptions]="{standalone: true}" class="form-control" id="name" placeholder="Enter Name">
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" class="form-control" id="email" placeholder="Enter Email">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label>Date</label>
+              <input type="date" [(ngModel)]="date" [ngModelOptions]="{standalone: true}" class="form-control" id="date">
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="form-group">
+              <label>No. of Seats</label>
+              <input type="number" [(ngModel)]="seat" [ngModelOptions]="{standalone: true}" class="form-control" id="seat" placeholder="Enter Number of Seats">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-4" (click)="save()">Save</button>
+      </form>
+    </div>
+  </div>
+</div>

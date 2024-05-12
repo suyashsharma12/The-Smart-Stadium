@@ -1,0 +1,35 @@
+.logo img {
+    height: 40px; /* Adjust the height as needed */
+    width: auto;
+    
+}
+.cricket-mania {
+    text-align: left;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    margin-right: 0%; /* Push it to the start */
+    padding-right: 57%; /* Optional: Add some spacing */
+}
+
+
+
+
+nav {
+background-color: #66BFBF;
+text-align:end;
+padding: 1em;
+}
+
+nav a {
+color: white;
+text-decoration: none;
+padding: 1em;
+margin: 0 1em;
+}
+
+
+nav a:hover { 
+color: black;
+}

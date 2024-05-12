@@ -1,0 +1,139 @@
+<!-- scoreboard.component.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricket Scoreboard</title>
+</head>
+<body>
+    <div class="scoreboard-container">
+        <div class="scoreboard-header">
+            <h2>Cricket Scoreboard</h2>
+        </div>
+
+        <!-- Match Summary -->
+        <div class="match-summary">
+            <p>Runs: {{ runs }}</p>
+            <p>Overs: {{ overs }}</p>
+            <p>Wickets: {{ wickets }}</p>
+        </div>
+
+        <!-- Form for adding runs and overs -->
+        <div class="add-score-form">
+            <label for="runs">Runs:</label>
+            <input type="number" id="runs" [(ngModel)]="runs" name="runs">
+
+            <label for="overs">Overs:</label>
+            <input type="text" id="overs" [(ngModel)]="overs" name="overs">
+        </div>
+
+        <!-- Form for adding players -->
+        <div class="add-players-form">
+            <h3>Add Player</h3>
+            <form (ngSubmit)="addPlayer()">
+                <label for="playerName">Player Name:</label>
+                <input type="text" id="playerName" [(ngModel)]="newPlayer.name" name="playerName" required>
+
+                <label for="playerRuns">Runs Scored:</label>
+                <input type="number" id="playerRuns" [(ngModel)]="newPlayer.runs" name="playerRuns">
+
+                <label for="playerBalls">Balls Faced:</label>
+                <input type="number" id="playerBalls" [(ngModel)]="newPlayer.balls" name="playerBalls">
+
+                <button type="submit">Add Player</button>
+            </form>
+        </div>
+
+        <!-- Form for adding bowlers -->
+        <div class="add-bowlers-form">
+            <h3>Add Bowler</h3>
+            <form (ngSubmit)="addBowler()">
+                <label for="bowlerName">Bowler Name:</label>
+                <input type="text" id="bowlerName" [(ngModel)]="newBowler.name" name="bowlerName" required>
+
+                <label for="bowlerOvers">Overs Bowled:</label>
+                <input type="number" id="bowlerOvers" [(ngModel)]="newBowler.overs" name="bowlerOvers">
+
+                <label for="bowlerRuns">Runs Conceded:</label>
+                <input type="number" id="bowlerRuns" [(ngModel)]="newBowler.runs" name="bowlerRuns">
+
+                <label for="bowlerWickets">Wickets Taken:</label>
+                <input type="number" id="bowlerWickets" [(ngModel)]="newBowler.wickets" name="bowlerWickets">
+
+                <button type="submit">Add Bowler</button>
+            </form>
+        </div>
+
+        <!-- Form for adding teams -->
+        <div class="add-teams-form">
+            <h3>Add Team</h3>
+            <form (ngSubmit)="addTeam()">
+                <label for="teamName">Team Name:</label>
+                <input type="text" id="teamName" [(ngModel)]="newTeam.name" name="teamName" required>
+
+                <label for="teamWins">Wins:</label>
+                <input type="number" id="teamWins" [(ngModel)]="newTeam.wins" name="teamWins">
+
+                <label for="teamLosses">Losses:</label>
+                <input type="number" id="teamLosses" [(ngModel)]="newTeam.losses" name="teamLosses">
+
+                <label for="teamPoints">Points:</label>
+                <input type="number" id="teamPoints" [(ngModel)]="newTeam.points" name="teamPoints">
+
+                <button type="submit">Add Team</button>
+            </form>
+        </div>
+
+        <!-- Points Table -->
+        <div class="points-table">
+            <h3>Points Table</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Team</th>
+                        <th>Wins</th>
+                        <th>Losses</th>
+                        <th>Points</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let team of pointsTable">
+                        <td>{{ team.name }}</td>
+                        <td>{{ team.wins }}</td>
+                        <td>{{ team.losses }}</td>
+                        <td>{{ team.points }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Batsmen Section -->
+        <div class="batsmen-section">
+            <h3>Batsmen</h3>
+            <div *ngFor="let batsman of batsmen">
+                <p>{{ batsman.name }}: {{ batsman.runs }} ({{ batsman.balls }} balls)</p>
+            </div>
+        </div>
+
+        <!-- Bowlers Section -->
+        <div class="bowlers-section">
+            <h3>Bowlers</h3>
+            <div *ngFor="let bowler of bowlers">
+                <p>{{ bowler.name }}: {{ bowler.overs }}-{{ bowler.runs }}-{{ bowler.wickets }}</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/angular@2.0.0-beta.17/bundles/angular2-polyfills.js"></script>
+    <script src="https://unpkg.com/systemjs@0.19.39/dist/system.src.js"></script>
+    <script src="https://unpkg.com/angular@2.0.0-beta.17/bundles/angular2.dev.js"></script>
+    <script src="https://unpkg.com/angular@2.0.0-beta.17/bundles/http.dev.js"></script>
+    <script>
+        System.config({
+            packages: { 'app': { defaultExtension: 'js' } }
+        });
+        System.import('app/main.js').then(null, console.error.bind(console));
+    </script>
+</body>
+</html>

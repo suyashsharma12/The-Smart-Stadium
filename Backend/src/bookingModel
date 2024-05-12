@@ -1,0 +1,26 @@
+//bookingmodel
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+
+var bookingSchema = new Schema({
+    name: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true
+    },
+    date: {
+        type: Date,
+        required: true
+    },
+    seat: {
+        type: Number,
+        required: true
+    }
+
+    // Add additional properties as needed
+});
+
+module.exports = mongoose.model('booking', bookingSchema);

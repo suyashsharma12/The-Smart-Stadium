@@ -1,0 +1,38 @@
+const merchModel = require('./merchModel');  // Make sure to replace 'merchModel' with the actual model you have for merchandise items
+
+module.exports.addToCartDBService = async (merchDetails) => {
+    try {
+        const merchModelData = new merchModel({
+            name: merchDetails.name,
+            description: merchDetails.description,
+            price: merchDetails.price,
+            // Additional properties as needed
+        });
+
+        await merchModelData.save();
+        return true;
+    } catch (error) {
+        console.error(error);
+        return false;
+    }
+};
+
+module.exports.validateCartDBService = async (merchDetails) => {
+    try {
+        const result = await merchModel.findOne({ name: merchDetails.name });
+
+        if (result !== undefined && result !== null) {
+            // You may want to compare other properties as needed
+            if (result.description === merchDetails.description && result.price === merchDetails.price) {
+                return { status: true, msg: "Item Validated in Cart Successfully" };
+            } else {
+                throw { status: false, msg: "Item Validation Failed in Cart" };
+            }
+        } else {
+            throw { status: false, msg: "Item Not Found in Cart" };
+        }
+    } catch (error) {
+        console.error(error);
+        throw { status: false, msg: "Invalid Data" };
+    }
+};

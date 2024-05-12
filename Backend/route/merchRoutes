@@ -1,0 +1,8 @@
+var express = require('express');
+var merchController = require('../src/merchController');
+const router = express.Router();
+
+router.route('/merch/addtocart').post(merchController.addtoCartControllerFn);
+router.route('/merch/validatecart').post(merchController.validateCartControllerFn);
+
+module.exports = router;

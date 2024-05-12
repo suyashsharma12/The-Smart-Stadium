@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricket Chat</title>
+    <link rel="stylesheet" href="chat.component.css">
+</head>
+<body>
+    <header>
+        <h1>Chat-box</h1>
+    </header>
+
+
+<div class="chat-container">
+    <div class="chat-header">Cricket Chat</div>
+    <div class="chat-messages" id="chat-messages"></div>
+    <div class="chat-input">
+        <input type="text" id="message-input" class="message-input" placeholder="Type your message...">
+        <button onclick="sendMessage()" class="send-button">Send</button>
+    </div>
+</div>
+
+<script>
+    function sendMessage() {
+        var messageInput = document.getElementById("message-input");
+        var message = messageInput.value;
+
+        if (message.trim() !== "") {
+            var chatMessages = document.getElementById("chat-messages");
+            var newMessage = document.createElement("div");
+            newMessage.className = "message";
+            newMessage.textContent = message;
+            chatMessages.appendChild(newMessage);
+
+            // Clear the input field after sending the message
+            messageInput.value = "";
+
+            // Scroll to the bottom to show the latest message
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+    }
+</script>
+
+</body>
+</html>
