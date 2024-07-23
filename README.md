@@ -48,8 +48,8 @@ Open a Pull Request
 .
 
 ## Contact
-NAME-suyash sharma \n 
-Suyashsharma974@gmail.com\n
+NAME-suyash sharma //
+Suyashsharma974@gmail.com//
 Project Link: https://github.com/suyashsharma12/The-Smart-Stadium
 
 
