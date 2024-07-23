@@ -47,7 +47,7 @@ Push to the Branch (git push origin feature/AmazingFeature)
 Open a Pull Request
 .
 
-Contact
+## Contact
 NAME-suyash sharma
 EMAIL-Suyashsharma974@gmail.com
 Project Link: https://github.com/suyashsharma12/The-Smart-Stadium
