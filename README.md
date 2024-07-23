@@ -49,7 +49,7 @@ Open a Pull Request
 
 ## Contact
 NAME-suyash sharma
-EMAIL-Suyashsharma974@gmail.com
+Suyashsharma974@gmail.com
 Project Link: https://github.com/suyashsharma12/The-Smart-Stadium
 
 
