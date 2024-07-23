@@ -14,8 +14,8 @@ Chat Section: Interact with other fans and support staff.
 To run this project locally, follow these steps:
   Clone the repository:
 
-      git clone https://github.com/yourusername/smart-stadium-website.git
-      cd smart-stadium-website
+      git clone https://github.com/suyashsharma12/The-Smart-stadium.git
+      cd The-Smart-stadium
       
   Install dependencies:
 
