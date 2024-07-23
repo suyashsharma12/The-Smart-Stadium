@@ -8,7 +8,7 @@ Booking: Reserve seats and tickets for events.
 Merchandise: Browse and purchase stadium merchandise.
 Live Scores: Get real-time updates on ongoing matches and events.
 Food and Beverages: Order food and drinks to your seat.
-Chat Section: Interact with other fans and support staff.
+
 
 ## Installation
 To run this project locally, follow these steps:
@@ -35,7 +35,7 @@ Booking: View available events, select seats, and book tickets.
 Merchandise: Browse the catalog of available merchandise, add items to your cart, and proceed to checkout.
 Live Scores: Stay updated with real-time scores of ongoing events.
 Food and Beverages: Order snacks and drinks, and choose delivery to your seat.
-Chat Section: Join the community chat to discuss events, ask questions, or seek assistance.
+
 
 ## Contributing
 Contributions are welcome! If you have suggestions for new features or improvements, please fork the repository and create a pull request. You can also open an issue to discuss any changes.
